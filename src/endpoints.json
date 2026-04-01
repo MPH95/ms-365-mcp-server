@@ -544,10 +544,24 @@
     "llmTip": "Priority values: 0=Urgent, 1=Important, 3=Medium, 5=Low, 9=unset."
   },
   {
+    "pathPattern": "/me/planner/plans",
+    "method": "get",
+    "toolName": "list-planner-plans",
+    "scopes": ["Tasks.Read"],
+    "llmTip": "Lists all Planner plans the current user is a member of. Returns plan id, title, owner (group id), and createdDateTime. Use the plan id with list-plan-tasks or list-plan-buckets."
+  },
+  {
     "pathPattern": "/planner/plans/{plannerPlan-id}",
     "method": "get",
     "toolName": "get-planner-plan",
     "scopes": ["Tasks.Read"]
+  },
+  {
+    "pathPattern": "/planner/plans/{plannerPlan-id}/buckets",
+    "method": "get",
+    "toolName": "list-plan-buckets",
+    "scopes": ["Tasks.Read"],
+    "llmTip": "Lists all buckets in a Planner plan. Returns bucket id, name, planId, and orderHint. Use bucket id when creating or updating tasks to assign them to a specific bucket."
   },
   {
     "pathPattern": "/planner/plans/{plannerPlan-id}/tasks",
